@@ -171,3 +171,8 @@ sudo modprobe vfio-pci
 sudo /usr/local/bin/dpdk-devbind.py --bind vfio-pci 0000:18:01.0
 sudo /usr/local/bin/dpdk-devbind.py --bind vfio-pci 0000:18:01.1
 ```
+### CPU Power
+`super user`
+```shell
+for ((i=0; i<$(nproc --all); i++)); do sudo cpufreq-set -c $i --min 3000000 --max 3100000 -g performance; done
+```
